@@ -11,7 +11,7 @@ class Main extends Component{
         loading: true
     }
     componentDidMount(){
-       fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=matrix`)
+       fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=matrix`)
         .then(response =>response.json())
         .then(data=>this.setState({movies:data.Search, loading:false}))
         .catch(e=>{
@@ -21,7 +21,7 @@ class Main extends Component{
     }
     getMovies = (param, type) =>{
         this.setState({ loading: true });
-        fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${param}${type!=='all'?`&type=${type}`:''}`)
+        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${param}${type!=='all'?`&type=${type}`:''}`)
         .then(response =>response.json())
         .then(data=>this.setState({movies:data.Search, loading:false}))
         .catch(e=>{
